@@ -12,6 +12,7 @@ app.UseEndpoints(endpoints =>
     {
         await context.Response.WriteAsync(app.Configuration["test"]);//directly 
         await context.Response.WriteAsync(app.Configuration.GetValue<string>("test") + "\n");//using getvalue
+        await context.Response.WriteAsync(app.Configuration.GetValue<string>("test","default one") + "\n");//if test not found default is used
 
     });
 });
